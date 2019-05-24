@@ -11,7 +11,10 @@
 			<tr><td>이름:</td><td>${article.name }</td></tr>
 			<tr><td>내용:</td><td>${article.contentHtml }</td></tr>
 			<tr><td>시간:</td><td>${article.udate }</td></tr>
-
-	</table>
+		</table>
+	<p>
+		<a href="./app/main">[홈으로]</a>
+	</p>
+	
 </body>
 </html>
