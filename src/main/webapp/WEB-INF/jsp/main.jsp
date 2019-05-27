@@ -30,7 +30,7 @@
 		<a href="./app/members">[회원 목록]</a>
 	</p>
 	<p>
-	<a href="./app/articles">[게시글 목록]</a>
+	<a href="./app/article/list">[게시글 목록]</a>
 	</p>
 	
 </body>
