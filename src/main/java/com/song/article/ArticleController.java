@@ -24,15 +24,11 @@ public class ArticleController {
 
 	Logger logger = LogManager.getLogger();
 
-	/**
-	 * 글 목록
-	 */
 	@GetMapping("/article/list")
 	public void articleList(
 			@RequestParam(value = "page", defaultValue = "1") int page,
 			Model model) {
 
-		// 페이지당 행의 수와 페이지의 시작점
 		final int COUNT = 100;
 		int offset = (page - 1) * COUNT;
 
@@ -42,9 +38,6 @@ public class ArticleController {
 		model.addAttribute("articleList", articleList);
 	}
 
-	/**
-	 * 글 보기
-	 */
 	@GetMapping("/article/view")
 	public void articleView(@RequestParam("articleId") String articleId,
 			Model model) {
@@ -62,9 +55,6 @@ public class ArticleController {
 		return "article/addForm";
 	}
 
-	/**
-	 * 글 등록
-	 */
 	@PostMapping("/article/add")
 	public String articleAdd(Article article,
 			@SessionAttribute("MEMBER") Member member){
@@ -74,9 +64,6 @@ public class ArticleController {
 		return "redirect:/app/article/list";
 }
 	
-	
-	
-		
 	@GetMapping("/article/delete")
 	public String articleDelete(@RequestParam("articleId") String articleId, 
 			@SessionAttribute("MEMBER") Member member) {
@@ -86,7 +73,7 @@ public class ArticleController {
 			return "redirect:/app/article/view?articleId=" + article.getArticleId();
 		}
 		articleDao.deleteArticle(articleId);
-		return "article/delete";
+		return "redirect:/app/article/list";
 	}
 	
 	@GetMapping("/article/formal")
